@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import Snackbar from "react-native-snackbar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const reactImg =
+    "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
+
+const App = () => {
+    useEffect(() => {
+        Snackbar.show({
+            text: "Hello world",
+            duration: 100,
+        });
+    }, []);
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.heading}>React Native</Text>
+            <Text style={styles.subText}>
+                Welcome to the world of App development.
+            </Text>
+            <Image
+                style={styles.image}
+                source={{
+                    uri: reactImg,
+                }}
+            />
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        display: "flex",
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    heading: {
+        fontWeight: 800,
+        fontSize: 40,
+        color: "#111",
+    },
+    subText: {
+        fontSize: 20,
+        color: "#111",
+    },
+    image: {
+        height: 100,
+        width: 100,
+    },
+});
 
 export default App;
